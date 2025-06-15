@@ -1,0 +1,30 @@
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Membership</th>
+        <th>Price</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    @for (user of users; track $index) {
+    <tr>
+        <td>{{ user.name}}</td>
+        <td>{{ user.gender}}</td>
+        <td>{{ user.membership}}</td>
+        <td>{{ user.price}}</td>
+        <td>{{ user.isActive ? 'Active' : 'Inactive'}}</td>
+        <td>
+            <button class="delete-button" (click)="onDelete(user)">
+                <i class="fa-solid fa-trash" aria-hidden="true"></i>
+            </button>
+        </td>
+    </tr>
+    }
+</table>
+@if (showConfirmDeleteComponent) {
+    <app-confirm-delete
+        object="{{name}}"
+        (confirmEvent)="handleConfirmResponse($event)"
+    />
+}
