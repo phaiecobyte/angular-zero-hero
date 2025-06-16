@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+// Add this to your global styles or include in styles.scss
+
+
+// Modal backdrop animation
+.modal-open {
+  overflow: hidden;
+}
+
+.modal-backdrop {
+  animation: fadeIn 0.2s ease-out;
+}
+
+// Animation keyframes
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
