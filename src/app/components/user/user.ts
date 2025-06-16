@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { CommonModule } from '@angular/common';
 import { User } from '../../models/user';
@@ -6,7 +6,7 @@ import { ConfirmDelete } from "../confirm-delete/confirm-delete";
 
 @Component({
   selector: 'app-user',
-  imports: [CommonModule, ConfirmDelete],
+  imports: [CommonModule,ConfirmDelete],
   templateUrl: './user.html',
   styleUrl: './user.scss'
 })
@@ -16,7 +16,7 @@ export class UserComponent implements OnInit {
   showConfirmDeleteComponent: boolean = false;
   userToDelete: User | null = null;
 
-  constructor(private userSerivice: UserService) {}
+  constructor(private userSerivice: UserService, private componentFactoryResover:ComponentFactoryResolver) {}
   
   ngOnInit(): void {
       this.users = this.userSerivice.users;
@@ -41,4 +41,5 @@ export class UserComponent implements OnInit {
     this.showConfirmDeleteComponent = false;
     this.userToDelete = null;
   }
+
 }

@@ -1,0 +1,14 @@
+ <h1>Defer Modal Example</h1>
+<button (click)="showModal.set(true)">Open Modal</button>
+
+@defer (when showModal()) {
+    <div class="modal-backdrop" (click)="closeModal($event)">
+    <div class="modal-content">
+        <h2>Modal Title</h2>
+        <p>This modal was lazy-loaded using  </p>
+        <button (click)="showModal.set(false)">Close</button>
+    </div>
+    </div>
+} @loading {
+    <div class="loading-indicator">Loading modal...</div>
+}

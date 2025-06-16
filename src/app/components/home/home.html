@@ -10,3 +10,14 @@
         officia deserunt mollit anim id est laborum.
     </p>
 </div>
+
+<button (click)="showModal.set(true)">Open Modal</button>
+    
+@defer (when showModal()) {
+    <app-modal 
+    [title]="'Confirmation'" 
+    [message]="'Are you sure?'"
+    (confirm)="handleConfirm()"
+    (cancel)="showModal.set(false)">
+    </app-modal>
+}
